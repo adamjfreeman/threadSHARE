@@ -3,11 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   text: {
     type: String,
   },
@@ -24,6 +19,11 @@ const productSchema = new Schema({
     type: Number,
     min: 0,
     default: 0,
+    required: true,
+  },
+  color: {
+    type: String,
+    required: true,
   },
   category: {
     type: Schema.Types.ObjectId,
