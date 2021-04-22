@@ -9,14 +9,31 @@ function Nav() {
                 <ul>
                     <li>
                         <Link to="/orderHistory">
-                            Order History 
+                            Order History
                         </Link>
                     </li>
                     <li>
-                        <a href="/" onClick{() => Auth.Logout()}></a>
+                        <a href="/" onClick={() => Auth.logout()}>
+                            Logout
+                        </a>
                     </li>
                 </ul>
-            )
+            );
+        } else {
+            return (
+                <ul>
+                    <li>
+                        <Link to="/signup">Sign Up</Link>
+                    </li>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
+                </ul>
+            );
         }
     }
+
+    // return statement
 }
+
+export default Nav;
