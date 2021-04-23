@@ -9,6 +9,7 @@ const typeDefs = gql`
     email: String
     orders: [Order]
   }
+  
 
 
   type Auth {
