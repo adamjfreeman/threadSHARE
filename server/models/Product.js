@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
-  ext: {
+  CustomText: {
     type: String,
   },
   size: {
@@ -17,6 +17,10 @@ const productSchema = new Schema({
     required: true,
   },
   color: {
+    type: String,
+    required: true,
+  },
+  style: {
     type: String,
     required: true,
   },
