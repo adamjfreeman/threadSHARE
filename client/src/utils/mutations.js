@@ -15,7 +15,7 @@ export const LOGIN = gql`
   }
 `;
 
-// double check after playgroudn
+// double check after playground
 export const ADD_PRODUCT = gql`
   mutation addProduct($style: String!, $color: String!, $customText: String!, $size: String!, $quantity: Number!) {
       addProduct(style: $style, color: $color, customText: $customText, size: $size, quantity: $quantity) {
