@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const charitySchema = new Schema({
+  donation: {
+    type: Number,
+    required: true,
+  },
   donatedTotal: {
     type: Number,
     required: true,

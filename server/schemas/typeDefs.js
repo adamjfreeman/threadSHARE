@@ -20,15 +20,15 @@ const typeDefs = gql`
     size: String
     CustomText: String
     color: String
-    quantity: Number
+    quantity: Int
     style: String
     category: Category
   }
 
   type Charity {
-    donatedTotal: Number
-    goal: Number
-    toGoal: Number
+    donatedTotal: Int
+    goal: Int
+    toGoal: Int
   }
 
   type Order {
@@ -48,6 +48,7 @@ const typeDefs = gql`
     product(_id: ID!): Product
     user: User
     order(_id: ID!): Order
+    charity: Charity
   }
 
   type Mutation {
@@ -66,6 +67,7 @@ const typeDefs = gql`
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
+    addDonation(donation: Int!)
   }
 `;
 
