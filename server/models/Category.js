@@ -8,6 +8,10 @@ const categorySchema = new Schema({
     required: true,
     trim: true,
   },
+  price: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Category = mongoose.model("Category", categorySchema);
