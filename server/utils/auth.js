@@ -1,45 +1,40 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecrets';
+const secret = 'mysecret';
 const expiration = '2h';
 
+// just taking in an email and id, don't want a username, and email
 module.exports = {
-  authMiddleware: function ({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
-    let token = req.body.token || req.query.token || req.headers.authorization;
+    authMiddleware: function ({ req }) {
+        let token = req.body.token || req.query.token || req.headers.authorization;
 
-    // ["Bearer", "<tokenvalue>"]
-    if (req.headers.authorization) {
-      token = token
-        .split(' ')
-        .pop()
-        .trim();
+        if (req.headers.authorization) {
+            token = token
+                .split(' ')
+                .pop()
+                .trim();
+        }
+
+        if (!token) {
+            return req;
+        }
+
+        try {
+            const { data } = jwt.verify(token, secret, { maxAge: expiration });
+            req.user = data;
+        }
+
+        catch {
+            console.log('Invalid token');
+        }
+        return req;
+    },
+    signToken: function ({ firstName, lastName, email, _id }) {
+        const payload = { firstName, lastName, email, _id };
+
+        return jwt.sign(
+            { data: payload },
+            secret,
+            { expiresIn: expiration });
     }
-
-    console.log("token", token)
-
-
-    if (!token) {
-      return req;
-    }
-
-    try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
-    }
-    catch {
-      console.log('Invalid token');
-    }
-
-    return req;
-  },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
-
-    return jwt.sign(
-      { data: payload },
-      secret,
-      { expiresIn: expiration }
-    );
-  }
 };
