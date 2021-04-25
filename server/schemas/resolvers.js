@@ -112,10 +112,9 @@ const resolvers = {
 
       return { token, user };
     },
-    addDonation: async (parent, goal, context) => {
-      console.log(context);
+    addDonation: async (parent, context) => {
       if (context.user) {
-        const donation = new Charity(goal);
+        const donation = new Charity();
 
         return donation;
       }

@@ -9,10 +9,10 @@ const charitySchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  goal: {
-    type: Number,
-    required: true,
-  },
+  // goal: {
+  //   type: Number,
+  //   required: true,
+  // },
 });
 
 const Charity = mongoose.model("Charity", charitySchema);

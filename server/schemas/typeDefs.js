@@ -26,9 +26,7 @@ const typeDefs = gql`
   }
 
   type Charity {
-    donatedTotal: Int
-    goal: Int
-    toGoal: Int
+    goalHitDate: String
   }
 
   type Order {
@@ -67,7 +65,7 @@ const typeDefs = gql`
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
-    addDonation(goal: Int!): Charity
+    addDonation(goalHitDate: String): Charity
   }
 `;
 
