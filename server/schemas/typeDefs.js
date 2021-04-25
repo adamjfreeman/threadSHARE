@@ -67,7 +67,7 @@ const typeDefs = gql`
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
-    addDonation(goal: Int!)
+    addDonation(goal: Int!): Charity
   }
 `;
 
