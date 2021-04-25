@@ -52,8 +52,8 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    charity: async () => {
-      return await Charity.find();
+    orders: async () => {
+      return await Order.find();
     },
     // need checkout
   },
