@@ -9,7 +9,7 @@ const categorySchema = new Schema({
     trim: true,
   },
   price: {
-    type: Float,
+    type: Number,
     required: true,
   },
 });
