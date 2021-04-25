@@ -112,14 +112,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addDonation: async (parent, context) => {
-      if (context.user) {
-        const donation = new Charity();
+    addDonation: async () => {
+      const donation = new Charity();
 
-        return donation;
-      }
-
-      throw new AuthenticationError("Not logged in");
+      return donation;
     },
   },
 };
