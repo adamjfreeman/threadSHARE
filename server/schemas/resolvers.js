@@ -8,20 +8,8 @@ const resolvers = {
     // categories: async () => {
     //   return await Category.find();
     // },
-    products: async (parent, { category, name }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
-
-      return await Product.find(params);
+    products: async () => {
+      return await Product.find();
     },
     product: async (parent, { _id }) => {
       return await Product.findById(_id);
@@ -52,13 +40,13 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    orders: async (parent) => {
-      const orders = await Order.find({}).populate("products");
-
-      return orders;
+    orders: async () => {
+      return await Order.find().populate("products");
     },
-    donations: async (parent) => {
-      return await Charity.find({});
+    donations: async () => {
+      let orders = [];
+      orders = await Charity.find({});
+      return orders;
     },
     // need checkout
   },
@@ -79,7 +67,7 @@ const resolvers = {
     },
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
-        const order = new Order({ products });
+        const order = await Order.create({ products });
         console.log(context.user);
 
         await User.findByIdAndUpdate(context.user._id, {
