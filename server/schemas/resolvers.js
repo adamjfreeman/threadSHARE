@@ -1,13 +1,13 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const { User, Product, Category, Order, Charity } = require("../models");
+const { User, Product, Order, Charity } = require("../models");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
-    categories: async () => {
-      return await Category.find();
-    },
+    // categories: async () => {
+    //   return await Category.find();
+    // },
     products: async (parent, { category, name }) => {
       const params = {};
 
@@ -21,17 +21,17 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate("category");
+      return await Product.find(params);
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate("category");
+      return await Product.findById(_id);
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           // need to put something like orders.products
           path: "orders.products",
-          populate: "category",
+          // populate: "category",
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -44,7 +44,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
-          populate: "category",
+          // populate: "category",
         });
 
         return user.orders.id(_id);
@@ -53,10 +53,10 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     orders: async () => {
-      return await Order.find();
+      return await Order.find({});
     },
     donations: async () => {
-      return await Charity.find();
+      return await Charity.find({});
     },
     // need checkout
   },
@@ -67,10 +67,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addCategory: async (parent, args) => {
-      const category = await Category.create(args);
-      return category;
-    },
+    // addCategory: async (parent, args) => {
+    //   const category = await Category.create(args);
+    //   return category;
+    // },
     addProduct: async (parent, args) => {
       const product = await Product.create(args);
       return product;
@@ -78,6 +78,7 @@ const resolvers = {
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
         const order = new Order({ products });
+        console.log(context.user);
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { orders: order },
@@ -122,8 +123,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addDonation: async (parent, context) => {
-      const donation = Charity.create();
+    addDonation: async (parent, { goalHitDate }) => {
+      const donation = await Charity.create({ goalHitDate });
 
       return donation;
     },
