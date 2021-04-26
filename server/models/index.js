@@ -4,4 +4,4 @@ const Product = require("./Product");
 const Order = require("./Order");
 const Charity = require("./Charity");
 
-module.exports = { User, Product, Category, Order, Charity };
+module.exports = { User, Product, Order, Charity };

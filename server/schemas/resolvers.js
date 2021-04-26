@@ -53,10 +53,10 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     orders: async () => {
-      return await Order.find();
+      return await Order.find({});
     },
     donations: async () => {
-      return await Charity.find();
+      return await Charity.find({});
     },
     // need checkout
   },
@@ -78,6 +78,7 @@ const resolvers = {
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
         const order = new Order({ products });
+        console.log(context.user);
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { orders: order },
@@ -122,8 +123,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addDonation: async (parent, context) => {
-      const donation = Charity.create();
+    addDonation: async (parent, { goalHitDate }) => {
+      const donation = await Charity.create({ goalHitDate });
 
       return donation;
     },

@@ -22,6 +22,8 @@ const typeDefs = gql`
     color: String
     quantity: Int
     style: String
+    category: String
+    price: Int
   }
 
   type Charity {
@@ -63,6 +65,7 @@ const typeDefs = gql`
       color: String!
       style: String!
       category: String!
+      price: Int!
     ): Product
     addOrder(products: [ID]!): Order
     updateUser(
