@@ -52,10 +52,12 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    orders: async () => {
-      return await Order.find({});
+    orders: async (parent) => {
+      const orders = await Order.find({}).populate("products");
+
+      return orders;
     },
-    donations: async () => {
+    donations: async (parent) => {
       return await Charity.find({});
     },
     // need checkout
