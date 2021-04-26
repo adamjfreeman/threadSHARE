@@ -55,6 +55,9 @@ const resolvers = {
     orders: async () => {
       return await Order.find();
     },
+    donations: async () => {
+      return await Charity.find();
+    },
     // need checkout
   },
   Mutation: {
@@ -64,8 +67,15 @@ const resolvers = {
 
       return { token, user };
     },
+    addCategory: async (parent, args) => {
+      const category = await Category.create(args);
+      return category;
+    },
+    addProduct: async (parent, args) => {
+      const product = await Product.create(args);
+      return product;
+    },
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
       if (context.user) {
         const order = new Order({ products });
 
@@ -112,8 +122,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addDonation: async () => {
-      const donation = new Charity();
+    addDonation: async (parent, context) => {
+      const donation = Charity.create();
 
       return donation;
     },
