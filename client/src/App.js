@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import Home from "./pages/Home";
-import Detail from "./pages/Detail";
+// import Detail from "./pages/Detail";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -39,6 +39,10 @@ const client = new ApolloClient({
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/successfulPurchase" component={SuccessfulPurchase} />
                 <Route exact path="/orderHistory" component={OrderHistory} />
+                <Route exact path="/tShirts" component={TShirts} />
+                <Route exact path="/sweatshirts" component={Sweatshirts} />
+                <Route exact path="/hoodies" component={Hoodies} />
+                <Route exact path="jackets" component={Jackets} />
                 {/* NEED TO FINISH <Route exact path="/products/:id" component={Detail} /> */}
               </Switch>
             </Provider>
