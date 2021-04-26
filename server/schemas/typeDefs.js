@@ -18,7 +18,7 @@ const typeDefs = gql`
   type Product {
     _id: ID
     size: String
-    CustomText: String
+    customText: String
     color: String
     quantity: Int
     style: String
@@ -26,6 +26,7 @@ const typeDefs = gql`
   }
 
   type Charity {
+    _id: ID
     goalHitDate: String
   }
 
@@ -47,6 +48,7 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     orders: [Order]
+    donations: [Charity]
   }
 
   type Mutation {
@@ -56,6 +58,15 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
+    addCategory(name: String!, price: Int!): Category
+    addProduct(
+      customText: String!
+      size: String!
+      quantity: Int!
+      color: String!
+      style: String!
+      category: String!
+    ): Product
     addOrder(products: [ID]!): Order
     updateUser(
       firstName: String
