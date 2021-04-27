@@ -42,7 +42,7 @@ const client = new ApolloClient({
                 <Route exact path="/tShirts" component={TShirts} />
                 <Route exact path="/sweatshirts" component={Sweatshirts} />
                 <Route exact path="/hoodies" component={Hoodies} />
-                <Route exact path="jackets" component={Jackets} />
+                <Route exact path="/jackets" component={Jackets} />
                 {/* NEED TO FINISH <Route exact path="/products/:id" component={Detail} /> */}
               </Switch>
             </Provider>
