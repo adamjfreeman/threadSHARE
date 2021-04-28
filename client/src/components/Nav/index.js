@@ -18,8 +18,7 @@ function Nav() {
     orderTotal += orderData.orders[i].price * orderData.orders[i].quantity;
   }
   // formula that finds the amount until the next goal
-  const toCurrentGoal =
-    goal - (orderTotal - goal * donationData.donations.length);
+  const toGoal = goal - (orderTotal - goal * donationData.donations.length);
 
   // function NavigationBar() {
   if (Auth.loggedIn()) {
