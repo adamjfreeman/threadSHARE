@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 import Nav from "./components/Nav";
+import ProductListNav from "./components/ProductListNav";
 import { Provider } from 'react-redux';
 import store from './utils/store';
 
@@ -39,12 +40,13 @@ const client = new ApolloClient({
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/successfulPurchase" component={SuccessfulPurchase} />
                 <Route exact path="/orderHistory" component={OrderHistory} />
-                <Route exact path="/tShirts" component={TShirts} />
-                <Route exact path="/sweatshirts" component={Sweatshirts} />
-                <Route exact path="/hoodies" component={Hoodies} />
-                <Route exact path="/jackets" component={Jackets} />
+                {/* <Route exact path="/tShirts" component={TShirts} /> */}
+                {/* <Route exact path="/sweatshirts" component={Sweatshirts} /> */}
+                {/* <Route exact path="/hoodies" component={Hoodies} /> */}
+                {/* <Route exact path="/jackets" component={Jackets} /> */}
                 {/* NEED TO FINISH <Route exact path="/products/:id" component={Detail} /> */}
               </Switch>
+              <ProductListNav />
             </Provider>
           </div>
         </Router>
