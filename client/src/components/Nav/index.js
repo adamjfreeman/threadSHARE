@@ -50,7 +50,7 @@ function Nav() {
 
             </h1>
             <nav>
-                {NavigationBar()}
+                {/* {NavigationBar()} */}
             </nav>
         </header>
     );
