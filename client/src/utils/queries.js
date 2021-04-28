@@ -37,6 +37,7 @@ export const QUERY_ALL_ORDERS = gql`
         _id
         price
         category
+        quantity
       }
     }
   }
