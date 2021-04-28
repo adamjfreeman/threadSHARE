@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-one);
+}
+:root {
+    --color-one: rgb(255, 255, 255);
+    --teal-color: rgb(38, 98, 134);
+    --gray-color: rgb(189, 189, 189);
+}
+
+/* top nav bar */
+
+nav {
+    background-color: var(--teal-color);
+    color: white;
+}
+
+.top-nav-container {
+    text-decoration: none;
+}
+
