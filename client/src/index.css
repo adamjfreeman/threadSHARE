@@ -147,6 +147,11 @@ nav {
     border: none;
 }
 
+.donate-now:hover {
+    background-color: var(--teal-color);
+    color: var(--accent-color);
+}
+
 /* home page styling */
 
 .home-styling {
@@ -261,6 +266,7 @@ input {
     justify-content: space-evenly;
     align-items: center;
 }
+
 .second-product-container {
     display: flex;
     justify-content: space-evenly;
@@ -274,6 +280,7 @@ input {
     text-align: center;
     /* padding: 5px; */
 }
+
 .product-options-label {
     padding: 5px;
     font-weight: 500;
@@ -283,7 +290,6 @@ input {
 .product-options select {
     padding: 5px;
     border-radius: 5px;
-
 }
 
 .product-options-text-container {
@@ -303,6 +309,7 @@ input {
     color: var(--teal-color);
     font-size: xx-large;
 }
+
 .product-price span {
     font-weight: bold;
     color: var(--teal-color);
