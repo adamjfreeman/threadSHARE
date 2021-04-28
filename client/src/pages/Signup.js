@@ -30,7 +30,7 @@ function SignUp(props) {
     // wrote skelton, but classNames and styling still needs to be done
     return (
         <div className='sign-up'>
-            <h2 class="sign-up-words">
+            <h2 className="sign-up-words">
                 Welcome to threadSHARE.
                 Build your profile below.
             </h2>
@@ -70,7 +70,7 @@ function SignUp(props) {
                     <input
                         placeholder="** Must contain 5 characters"
                         name="userPassword"
-                        type="userPassword"
+                        type="password"
                         id="userPassword"
                         onChange={handleChange}
                         />
