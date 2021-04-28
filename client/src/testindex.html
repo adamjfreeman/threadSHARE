@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Krona+One&family=Poiret+One&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="nav-flex">
+            <div class="logo-styling">
+                THRE<span class="logo-delta">&#9651;</span>D<span class="logo-span"></span><span
+                    class="logo-s">$</span>H<span class="logo-delta">&#9651;</span>RE
+            </div>
+            <ul class="top-nav-container">
+                <li class="top-nav-item">
+                    Signup
+                </li>
+                <li class="top-nav-item">
+                    Login
+                </li>
+                <li class="top-nav-item">
+                    Order History
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- jumbotron/ charity counter -->
+
+    <div class="charity-container">
+
+        <h2 class="charity-words">
+            Giving back is what we're all about. </br>
+            For every $10 you spend, we donate $1.
+        </h2>
+
+        <div class="charity-counter">
+            <div>
+                <div id="goal">$10,000</div>
+                <div id="goal-bar">
+                    <div id="progress"></div>
+                </div>
+            </div>
+
+            <div class="goal-padding">
+                <div class="dollars-acc">total: <span id="to-goal">$1,600</span></div>
+                <button class="donate-now">Donate now</button>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- homepage -->
+
+    <main class="home-styling">
+        <!-- log  in/ sign up -->
+        <div class="sign-up">
+            <h2 class="sign-up-words">
+                Welcome to threadSHARE.
+                </br>Build your profile below.
+            </h2>
+
+            <form>
+                <div class="row">
+                    <label htmlFor="firstName">First Name:</label>
+                    <input placeholder="First Name" name="firstName" type="firstName" id="firstName"
+                        onChange={handleChange} />
+                </div>
+                <div class="row">
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input placeholder="Last Name" name="lastName" type="lastName" id="lastName"
+                        onChange={handleChange} />
+                </div>
+                <div class="row">
+                    <label htmlFor="email">Email:</label>
+                    <input placeholder="youremail@email.com" name="email" type="email" id="email"
+                        onChange={handleChange} />
+                </div>
+                <div class="row">
+                    <label htmlFor="userPassword">Password:</label>
+                    <input placeholder="*****" name="userPassword" type="password" id="userPassword"
+                        onChange={handleChange} />
+                </div>
+                <div class="button-row">
+                    <button class="btn" type="submit">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+        <!-- picture/video -->
+        <div>
+            <img class="home-image" src="../public/share.jpg" alt="hands holding flower">
+        </div>
+
+    </main>
+    <!-- bottom nav -->
+    <div class="bottom-nav-container">
+        <div class="bottom-nav-item">T-Shirts</div>
+        <div class="bottom-nav-item">Sweatshirts</div>
+        <div class="bottom-nav-item">Hoodies</div>
+        <div class="bottom-nav-item">Jackets</div>
+
+    </div>
+
+
+
+    <!-- individual pages -->
+    <div class="product-page-container">
+
+        <div>
+            <img class="product-img" src="../public/t-shirt.jpg" alt="picture of t-shirt">
+        </div>
+
+        <div>
+            <h1 class="product-name">T-shirts</h1>
+
+
+            <form>
+                <div class="first-product-container">
+                    <div class="product-options">
+                        <div class="product-options-label">Style</div>
+                        <select class="select-styling">
+                            <option value=""> Select one:</option>
+                            <option value="0"> Men's</option>
+                            <option value="1"> Women's</option>
+                        </select>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="product-options-label">Color</div>
+                        <select class="select-styling">
+                            <option value=""> Select one:</option>
+                            <option value="0"> Navy</option>
+                            <option value="1"> Olive Green</option>
+                            <option value="2"> Black</option>
+                            <option value="3"> White</option>
+                            <option value="4"> Gray</option>
+                            <option value="5"> Plum</option>
+                            <option value="6"> Red</option>
+                        </select>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="product-options-label">Size</div>
+                        <select class="select-styling">
+                            <option value=""> Select one:</option>
+                            <option value="0"> XS</option>
+                            <option value="1"> S</option>
+                            <option value="2"> M</option>
+                            <option value="3"> L</option>
+                            <option value="4"> XL</option>
+                            <option value="5"> XXL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="second-product-container">
+                    <div class="product-options-text-container">
+                        <label class="product-options-label">Text for Shirt</label>
+                        <input class="product-input" id="t-shirt-text" />
+                    </div>
+
+                    <div>
+                        <label class="product-options-label">Quantity</label>
+                        <input class="product-input" id="t-shirt-quantity" />
+                    </div>
+
+                </div>
+
+                <div class="third-product-container">
+                    <div class="product-price">Price: <span id="t-shirt-price">$20</span></div>
+
+                    <div class="button-row">
+                        <button class="btn" type="submit">Add To Cart</button>
+                    </div>
+                </div>
+
+                
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+    </footer>
+
+
+
+</body>
+
+</html>
