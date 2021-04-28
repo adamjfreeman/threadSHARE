@@ -33,7 +33,20 @@ function Nav() {
         }
     }
 
-    // return statement
+    return ( 
+        <header>
+            <h1>
+                <Link to="/">
+                    {/* threadShare logo */}
+                    <img></img>
+                </Link>
+
+            </h1>
+            <nav>
+                {NavigationBar()}
+            </nav>
+        </header>
+    );
 }
 
 export default Nav;
