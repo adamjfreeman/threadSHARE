@@ -8,8 +8,8 @@ import { QUERY_ALL_DONATIONS, QUERY_ALL_ORDERS } from "../../utils/queries";
 
 function Nav() {
   // getting query data needed for goal tracker
-  const { donationLoading, donationData } = useQuery(QUERY_ALL_DONATIONS);
-  const { orderLoading, orderData } = useQuery(QUERY_ALL_ORDERS);
+  const { donationData } = useQuery(QUERY_ALL_DONATIONS);
+  const { orderData } = useQuery(QUERY_ALL_ORDERS);
   // setting up constants for goal tracker
   const goal = 1000;
   let orderTotal;
