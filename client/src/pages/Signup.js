@@ -29,10 +29,13 @@ function SignUp(props) {
 
     // wrote skelton, but classNames and styling still needs to be done
     return (
-        <div>
-            <h2>Sign Up</h2>
+        <div className='sign-up'>
+            <h2 class="sign-up-words">
+                Welcome to threadSHARE.
+                Build your profile below.
+            </h2>
             <form onSubmit={handleSignUpFormSubmit}>
-                <div>
+                <div className='row'>
                     <label htmlFor="firstName">First Name:</label>
                     <input
                         placeholder="First Name"
@@ -42,7 +45,7 @@ function SignUp(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className='row'>
                     <label htmlFor="lastName">Last Name:</label>
                     <input
                         placeholder="Last Name"
@@ -52,7 +55,7 @@ function SignUp(props) {
                         onChange={handleChange}
                         />
                 </div>
-                <div>
+                <div className='row'>
                     <label htmlFor="email">Email:</label>
                     <input
                         placeholder="youremail@email.com"
@@ -62,7 +65,7 @@ function SignUp(props) {
                         onChange={handleChange}
                         />
                 </div>
-                <div>
+                <div className='row'>
                     <label htmlFor="userPassword">Password:</label>
                     <input
                         placeholder="** Must contain 5 characters"
@@ -72,8 +75,8 @@ function SignUp(props) {
                         onChange={handleChange}
                         />
                 </div>
-                <div>
-                    <button type="submit">Submit</button>
+                <div className='button-row'>
+                    <button className='btn' type="submit">Submit</button>
                 </div>
             </form>
         </div>
