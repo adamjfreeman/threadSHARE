@@ -175,6 +175,7 @@ a {
     display: block;
     text-align: center;
     font-size: 2rem;
+    padding-bottom: 20px;
 }
 
 .sign-up-words {
