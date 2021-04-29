@@ -5,7 +5,10 @@ import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
 function SignUp(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
   const [addUser] = useMutation(ADD_USER);
 
   const handleSignUpFormSubmit = async (event) => {
@@ -68,12 +71,12 @@ function SignUp(props) {
           />
         </div>
         <div className="row">
-          <label htmlFor="userPassword">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             placeholder="** Must contain 5 characters"
-            name="userPassword"
-            type="userPassword"
-            id="userPassword"
+            name="password"
+            type="password"
+            id="password"
             onChange={handleChange}
           />
         </div>

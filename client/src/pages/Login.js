@@ -48,12 +48,12 @@ function Login(props) {
           />
         </div>
         <div className="row">
-          <label htmlFor="userPassword">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             placeholder="** Must contain 5 characters"
-            name="userpassword"
+            name="password"
             type="password"
-            id="userPassword"
+            id="password"
             onChange={handleChange}
           />
         </div>
