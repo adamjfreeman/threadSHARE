@@ -5,10 +5,10 @@ function Sweatshirts() {
     return (
         <div className="product-page-container">
             <div>
-                <img className="product-img" src={sweatshirt} alt="picture of t-shirt"/>
+                <img className="product-img" src={sweatshirt} alt="picture of sweatshirt"/>
             </div>
             <div>
-                <h1 className="product-name">T-shirts</h1>
+                <h1 className="product-name">Sweatshirts</h1>
                 <form>
                     <div className="first-product-container">
                         <div className="product-options">

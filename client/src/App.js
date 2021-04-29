@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 // import Detail from "./pages/Detail";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Auth from './utils/auth';
 
 import Nav from "./components/Nav";
 import Charity from './components/Charity';
