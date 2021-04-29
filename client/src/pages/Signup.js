@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
 function SignUp(props) {
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [formState, setFormState] = useState({
+        email: "",
+        password: "",
+    });
     const [addUser] = useMutation(ADD_USER);
 
-    const handleSignUpFormSubmit = async event => {
+    const handleSignUpFormSubmit = async (event) => {
         event.preventDefault();
         const mutationResponse = await addUser({
             variables: {
-                email: formState.email, password: formState.password, firstName: formState.firstName, lastName: formState.lastName
-            }
+                email: formState.email,
+                password: formState.password,
+                firstName: formState.firstName,
+                lastName: formState.lastName,
+            },
         });
         const token = mutationResponse.data.addUser.token;
         Auth.login(token);
     };
 
-    const handleChange = event => {
+    const handleChange = (event) => {
         const { name, value } = event.target;
         setFormState({
             ...formState,
-            [name]: value
+            [name]: value,
         });
     };
 
@@ -53,7 +59,7 @@ function SignUp(props) {
                         type="lastName"
                         id="lastName"
                         onChange={handleChange}
-                        />
+                    />
                 </div>
                 <div className='row'>
                     <label htmlFor="email">Email:</label>
@@ -63,25 +69,25 @@ function SignUp(props) {
                         type="email"
                         id="email"
                         onChange={handleChange}
-                        />
+                    />
                 </div>
-                <div className='row'>
-                    <label htmlFor="userPassword">Password:</label>
+                <div className="row">
+                    <label htmlFor="password">Password:</label>
                     <input
-                        placeholder="*****"
-                        name="userPassword"
+                        placeholder="** Must contain 5 characters"
+                        name="password"
                         type="password"
-                        id="userPassword"
+                        id="password"
                         onChange={handleChange}
-                        />
+                    />
                 </div>
                 <div className='button-row'>
                     <button className='btn' type="submit">Submit</button>
                 </div>
             </form>
         </div>
-    );
 
+    );
 }
 
 export default SignUp;

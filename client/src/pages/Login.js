@@ -1,37 +1,37 @@
 import React, { useState } from "react";
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
-import SharImage from '../assets/share.jpg';
+import SharImage from "../assets/share.jpg";
 
 function Login(props) {
-    const [formState, setFormState] = useState({ email: '', password: '' })
+    const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN);
 
-    const handleUserLoginFormSubmit = async event => {
+    const handleUserLoginFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+            const mutationResponse = await login({
+                variables: { email: formState.email, password: formState.password },
+            });
             const token = mutationResponse.data.login.token;
             Auth.login(token);
-        }
-        catch (err) {
+        } catch (err) {
             console.log("error:" + err);
-            // alternative option- string interpolation 
+            // alternative option- string interpolation
             // console.log(`error: ${err}`);
         }
     };
 
-    const handleChange = event => {
+    const handleChange = (event) => {
         const { name, value } = event.target;
         setFormState({
             ...formState,
-            [name]: value
+            [name]: value,
         });
     };
 
-    // html code for when you clicked on the login on the Nav bar. I just have the skelton code-- you still need to design
     return (
         <div className='home-styling'>
             <div className='sign-up'>
@@ -49,13 +49,13 @@ function Login(props) {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className='row'>
-                        <label htmlFor="userPassword">Password:</label>
+                    <div className="row">
+                        <label htmlFor="password">Password:</label>
                         <input
-                            placeholder="*****"
-                            name="userpassword"
+                            placeholder="** Must contain 5 characters"
+                            name="password"
                             type="password"
-                            id="userPassword"
+                            id="password"
                             onChange={handleChange}
                         />
                     </div>
@@ -70,12 +70,13 @@ function Login(props) {
                     </div>
                 </form>
             </div>
-            
+
             <div>
                 <img className="home-image" src={SharImage} alt="hands holding flower" />
             </div>
         </div>
-    );
+        
+  );
 }
 
 export default Login;
