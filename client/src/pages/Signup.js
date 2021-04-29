@@ -68,7 +68,7 @@ function SignUp(props) {
                 <div className='row'>
                     <label htmlFor="userPassword">Password:</label>
                     <input
-                        placeholder="** Must contain 5 characters"
+                        placeholder="*****"
                         name="userPassword"
                         type="password"
                         id="userPassword"

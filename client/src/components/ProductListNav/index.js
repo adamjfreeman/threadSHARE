@@ -7,29 +7,37 @@ function ProductListNav() {
 
     return (
         // product list
-        <div>
-            <div>
-                <h2>Choose from one of the following</h2>
-            </div>
-            <div>
+        <div className='bottom-nav'>
+
+            <h2 className='bottom-nav-words'>Choose from one of the following:</h2>
+
+            <div className='bottom-nav-container'>
                 <ul className='bottom-nav-container'>
                     <li className='bottom-nav-item'>
-                        <Link to="tShirts">T-Shirts</Link>
+                        <Link className='bottom-nav-item-link' to="tShirts">T-Shirts</Link>
                         <i className="fas fa-tshirt"></i>
                     </li>
                     <li className='bottom-nav-item'>
-                        <Link to="/sweatshirts">Sweatshirts</Link>
+                        <Link className='bottom-nav-item-link' to="/sweatshirts">Sweatshirts</Link>
                         <img></img>
                     </li>
                     <li className='bottom-nav-item'>
-                        <Link to="/hoodies">Hoodies</Link>
+                        <Link className='bottom-nav-item-link' to="/hoodies">Hoodies</Link>
                         <img></img>
                     </li>
                     <li className='bottom-nav-item'>
-                        <Link to="/jackets">Jackets</Link>
+                        <Link className='bottom-nav-item-link' to="/jackets">Jackets</Link>
                         <img></img>
                     </li>
                 </ul>
+            </div>
+
+            <div className='footer-spacing'>
+                
+
+            </div>
+            <div className='footer'>
+                Thank you for choosing threadSHARE!
             </div>
         </div>
     );

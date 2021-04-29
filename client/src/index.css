@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Poiret+One&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: black;
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 :root {
@@ -32,6 +34,7 @@ nav {
     font-weight: 500;
     font-size: 2.8rem;
     color: var(--color-one);
+    text-decoration: none;
     /* letter-spacing: 2px; */
 }
 
@@ -62,6 +65,7 @@ nav {
     text-transform: uppercase;
     font-size: 2rem;
     color: var(--color-one);
+    
 }
 
 .top-nav-item:hover {
@@ -87,6 +91,10 @@ nav {
     border: solid 2px var(--teal-color);
     margin: 30px;
     text-align: center;
+}
+a {
+    text-decoration: none;
+    color: var(--color-one);
 }
 
 .charity-counter {
@@ -155,10 +163,12 @@ nav {
 /* home page styling */
 
 .home-styling {
-    margin: 30px auto;
+    margin:  auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .sign-up {
@@ -171,9 +181,21 @@ nav {
     padding: 30px;
     color: var(--teal-color);
 }
+.sign-up-words2 {
+    padding: 15px;
+    color: var(--teal-color);
+    font-style: italic;
+    font-size: xx-large;
+}
 
 form {
     display: inline;
+}
+.error-message {
+    font-size: 20px;
+    font-weight: 100;
+    font-style: italic;
+    color: var(--teal-color);
 }
 
 label {
@@ -208,13 +230,16 @@ input {
     font-size: 1rem;
     border: none;
 }
+.btn-spacing {
+    margin: 10px;
+}
 
 .btn:hover {
     background-color: var(--gray-color);
 }
 
 .home-image {
-    max-height: 550px;
+    max-height: 450px;
     width: auto;
 }
 
@@ -222,9 +247,12 @@ input {
 
 .bottom-nav-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin: auto;
+    padding: 30px;
+    background-color: var(--accent-color);
 }
 
 .bottom-nav-item {
@@ -237,6 +265,27 @@ input {
     text-align: center;
     font-weight: 700;
     font-size: 1.5rem;
+    list-style: none;
+    margin: 10px;
+}
+.bottom-nav-item-link {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.bottom-nav {
+    display:block;
+    text-align: center;
+    /* justify-content: center; */
+}
+.bottom-nav-words {
+    display: block;
+    padding-top: 40px;
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: var(--accent-color);
+    color: var(--teal-color);
+    /* margin: 20px auto; */
 }
 
 /* individual products */
@@ -250,7 +299,7 @@ input {
 
 .product-name {
     text-align: center;
-    font-weight: bolder;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 3rem;
     color: var(--teal-color);
@@ -305,20 +354,30 @@ input {
 }
 
 .product-price {
-    font-weight: bold;
+    font-weight: 500;
     color: var(--teal-color);
     font-size: xx-large;
 }
 
 .product-price span {
-    font-weight: bold;
+    font-weight: 500;
     color: var(--teal-color);
     font-size: xx-large;
 }
 
 /* footer */
 
-footer {
-    padding: 40px;
-    border-bottom: var(--teal-color) solid 30px;
+/* .footer-spacing {
+    padding: 20px;
+    background-color: var(--accent-color);
+    
+
+} */
+.footer {
+    /* border-top: var(--accent-color) solid 10px; */
+    background-color: var(--teal-color);
+    color: var(--color-one);
+    padding: 15px;
+    font-weight: 400;
+    font-size: 1.8rem;
 }

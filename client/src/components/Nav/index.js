@@ -7,7 +7,7 @@ function Nav() {
   return (
       <nav className='nav-flex'>
         <div className='logo-styling'>
-          <a href='/'>
+          <a class="logo-styling" href='/'>
             THRE<span className="logo-delta">&#9651;</span>D<span className="logo-span"></span><span
               className="logo-s">$</span>H<span className="logo-delta">&#9651;</span>RE
           </a>
@@ -16,24 +16,24 @@ function Nav() {
           <ul className='top-nav-container'>
             {Auth.loggedIn() &&
               <li className='top-nav-item'>
-                <Link to="/orderHistory">Order History</Link>
+                <Link className='top-nav-item' to="/orderHistory">Order History</Link>
               </li>
             }
             {Auth.loggedIn() &&
-              <li className='top-nave-item'>
-                <a href="/" onClick={()=> Auth.logout()}>
+              <li className='top-nav-item'>
+                <a className='top-nav-item' href="/" onClick={()=> Auth.logout()}>
                   Logout
                 </a>
               </li>
             }
             {!Auth.loggedIn() &&
               <li className='top-nav-item'>
-                <Link to="/signup">Sign Up</Link>
+                <Link className='top-nav-item' to="/signup">Sign Up</Link>
               </li>
             }
             {!Auth.loggedIn() &&
               <li className='top-nav-item'>
-                <Link to="/login">Login</Link>
+                <Link className='top-nav-item' to="/login">Login</Link>
               </li>
             }
           </ul>
