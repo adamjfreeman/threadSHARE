@@ -7,20 +7,35 @@ import logo from "../../assets/threadSHARE.png";
 import { QUERY_ALL_DONATIONS, QUERY_ALL_ORDERS } from "../../utils/queries";
 
 function Charity() {
-  //   // getting query data needed for goal tracker
-  //   const { donationLoading, donationData } = useQuery(QUERY_ALL_DONATIONS);
-  //   const { orderLoading, orderData } = useQuery(QUERY_ALL_ORDERS);
-  //   // setting up constants for goal tracker
-  //   const goal = 1000;
-  //   let orderTotal;
-  //   // loop to get total amount spent through orders
-  //   for (let i = 0; i < orderData.orders.length; i++) {
-  //     orderTotal += orderData.orders[i].price * orderData.orders[i].quantity;
-  //   }
-  //   // formula that finds the amount until the next goal
-  //   const toGoal = goal - (orderTotal - goal * donationData.donations.length);
+  // getting query data needed for goal tracker
+  const { loading: donationLoading, data: donationData } = useQuery(
+    QUERY_ALL_DONATIONS
+  );
+  const { loading: orderLoading, data: orderData } = useQuery(QUERY_ALL_ORDERS);
+  // setting up constants for goal tracker
+  const goal = 1000;
+  let orderTotal = 0;
+  let toGoal;
+  if (!donationLoading && !orderLoading) {
+    console.log(donationData);
+    // loop to get total amount spent through orders
+    for (let i = 0; i < orderData.orders.length; i++) {
+      let products = orderData.orders[i].products;
+      for (let j = 0; j < products.length; j++) {
+        if (products[j].price === null) {
+          products[j].price = 0;
+        }
+        if (products[j].quantity === null) {
+          products[j].quantity = 0;
+        }
+        orderTotal = orderTotal + products[j].price * products[j].quantity;
+      }
+    }
+    // formula that finds the amount until the next goal
+    toGoal = orderTotal - goal * donationData.donations.length;
+    console.log(toGoal);
+  }
 
-  // function NavigationBar() {
   return (
     <div className="charity-container">
       <h2 className="charity-words">
@@ -30,7 +45,7 @@ function Charity() {
 
       <div className="charity-counter">
         <div>
-          <div id="goal">$10,000</div>
+          <div id="goal">${goal}</div>
           <div id="goal-bar">
             <div id="progress"></div>
           </div>
@@ -38,7 +53,7 @@ function Charity() {
 
         <div className="goal-padding">
           <div className="dollars-acc">
-            total: <span id="to-goal">$1,600</span>
+            total: <span id="to-goal">${toGoal}</span>
           </div>
           <button className="donate-now">Donate now</button>
         </div>
