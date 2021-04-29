@@ -7,7 +7,7 @@ function Nav() {
   return (
       <nav className='nav-flex'>
         <div className='logo-styling'>
-          <a class="logo-styling" href='/'>
+          <a className="logo-styling" href='/'>
             THRE<span className="logo-delta">&#9651;</span>D<span className="logo-span"></span><span
               className="logo-s">$</span>H<span className="logo-delta">&#9651;</span>RE
           </a>

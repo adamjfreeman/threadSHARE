@@ -18,8 +18,7 @@ import store from './utils/store';
 import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 import OrderHistory from "./pages/OrderHistory";
 
-import TShirts from './pages/TShirts';
-import Sweatshirts from './pages/Sweatshirts';
+import Products from './pages/Products';
 
 const client = new ApolloClient({
     request: (operation) => {
@@ -47,11 +46,10 @@ const client = new ApolloClient({
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/successfulPurchase" component={SuccessfulPurchase} />
                 <Route exact path="/orderHistory" component={OrderHistory} />
-                <Route exact path="/tShirts" component={TShirts} />
-                <Route exact path="/sweatshirts" component={Sweatshirts} />
-                {/* <Route exact path="/hoodies" component={Hoodies} /> */}
-                {/* <Route exact path="/jackets" component={Jackets} /> */}
-                {/* NEED TO FINISH <Route exact path="/products/:id" component={Detail} /> */}
+                <Route exact path="/tShirts" component={Products} />
+                <Route exact path="/sweatshirts" component={Products} />
+                <Route exact path="/hoodies" component={Products} />
+                <Route exact path="/jackets" component={Products} />
               </Switch>
               <ProductListNav />
             </Provider>

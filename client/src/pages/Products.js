@@ -1,14 +1,42 @@
 import React from "react";
-import sweatshirt from '../assets/sweatshirt.png'
+import tshirtImage from '../assets/t-shirt.png'
+import sweatshirtImage from '../assets/sweatshirtImage.jpg'
+import hoodieImage from '../assets/hoodieImage.jpg'
+import jacketImage from '../assets/jacketImage.jpg'
 
-function Sweatshirts() {
+function Products() {
+    let product = '';
+    let price = 0;
+    let image = '';
+    switch (window.location.pathname) {
+        case '/tShirts':
+            product = 'T-Shirt'
+            price = 10
+            image = tshirtImage
+            break;
+        case '/sweatshirts':
+            product = 'Sweatshirt'
+            price = 20
+            image = sweatshirtImage
+            break;
+        case '/hoodies':
+            product = 'Hoodies'
+            price = 30
+            image = hoodieImage
+            break;
+        case '/jackets':
+            product = 'Jackets'
+            price = 40
+            image = jacketImage
+            break;
+    }
     return (
         <div className="product-page-container">
             <div>
-                <img className="product-img" src={sweatshirt} alt="picture of sweatshirt"/>
+                <img className="product-img" src={image} alt="picture of sweatshirt" key={product}/>
             </div>
             <div>
-                <h1 className="product-name">Sweatshirts</h1>
+                <h1 className="product-name">{product}</h1>
                 <form>
                     <div className="first-product-container">
                         <div className="product-options">
@@ -62,7 +90,7 @@ function Sweatshirts() {
                     </div>
 
                     <div className="third-product-container">
-                        <div className="product-price">Price: <span id="t-shirt-price">$20</span></div>
+                        <div className="product-price">Price: <span id="t-shirt-price">${price}</span></div>
 
                         <div className="button-row">
                             <button className="btn" type="submit">Add To Cart</button>
@@ -74,4 +102,4 @@ function Sweatshirts() {
     );
 }
 
-export default Sweatshirts;
+export default Products;
