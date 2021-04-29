@@ -1,11 +1,54 @@
 import React from "react";
-import tshirt from '../assets/t-shirt.png'
+import tshirt from '../assets/t-shirt.png';
+import { useDispatch, useSelector } from "react-redux";
+
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { idbPromise } from "../../utils/helpers";
+
+import {QUERY_PRODUCT} from "../../utils/queries";
+
+
 
 function TShirts() {
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+    // find out where you can pull that info into the 
+
+    // const {
+    //     _id,
+    //     customText,
+    //     style,
+    //     color,
+    //     size,
+    //     quantity,
+    // } = item;
+
+    const { cart } = state;
+
+    const addToCart = () => {
+        const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+        if (itemInCart) {
+            dispatch({
+                type: UPDATE_CART_QUANTITY,
+                _id: _id,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
+            idbPromise('cart', 'put', {
+                ...itemInCart,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
+        } else {
+            dispatch({
+                type: ADD_TO_CART,
+                product: { ...item, purchaseQuantity: 1 }
+            });
+            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+        }
+    }
     return (
         <div className="product-page-container">
             <div>
-                <img className="product-img" src={tshirt} alt="picture of t-shirt"/>
+                <img className="product-img" src={tshirt} alt="picture of t-shirt" />
             </div>
             <div>
                 <h1 className="product-name">T-shirts</h1>
@@ -19,7 +62,7 @@ function TShirts() {
                                 <option value="1"> Women's</option>
                             </select>
                         </div>
-                        
+
                         <div className="product-options">
                             <div className="product-options-label">Color</div>
                             <select className="select-styling">
@@ -65,7 +108,7 @@ function TShirts() {
                         <div className="product-price">Price: <span id="t-shirt-price">$20</span></div>
 
                         <div className="button-row">
-                            <button className="btn" type="submit">Add To Cart</button>
+                            <button className="btn" type="submit" onClick={addToCart}>Add To Cart</button>
                         </div>
                     </div>
                 </form>

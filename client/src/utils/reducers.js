@@ -70,6 +70,8 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 cartOpen: !state.cartOpen
             };
+        default: 
+        return state;
     }
 };
 
