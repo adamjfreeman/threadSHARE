@@ -33,7 +33,8 @@ function Charity() {
     }
     // formula that finds the amount until the next goal
     toGoal = orderTotal - goal * donationData.donations.length;
-    console.log(toGoal);
+    const progressBar = (toGoal / goal) * 100;
+    document.getElementById("progress").style.width = `${progressBar}%`;
   }
 
   return (
